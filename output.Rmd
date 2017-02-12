@@ -1,0 +1,115 @@
+---
+title: "PS2 syntax"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```{r}
+setwd("/Users/tomionia/Documents/PSY508 Stats/PS2")
+
+# Installing packages
+list.of.packages <- c("xlsx", "ggplot2","nlme", "foreign", "gplots", "stats", "psych" , "ISwR", "ggm" , "car" , "ppcor", "StatDA", "plyr","DescTools")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+# Loading packages
+lapply(list.of.packages, require, character.only = TRUE)
+
+path = "/Users/tomionia/Documents/PSY508 Stats/PS2"
+
+#For a CSV file:
+ps2 <- read.csv(file="cities_data_set.csv", header=TRUE)
+
+#running model for comparing contrast
+model1 <- lm(formula = CRIME ~ SIZE + POV , data=ps2)
+summary(model1)
+anova(model1)
+EtaSq(model1)
+
+#running model for comparing contrast
+model2 <- lm(formula = CRIME ~ POV + SIZE , data=ps2)
+summary(model2)
+anova(model2)
+EtaSq(model2)
+
+#creating an interaction term
+ps2$interaction <- (ps2$SIZE*ps2$POV)
+
+#running model for comparing contrast
+model3 <- lm(formula = CRIME ~ POV + SIZE + interaction, data=ps2)
+summary(model3)
+anova(model3)
+EtaSq(model3)
+
+#get descriptives
+describe(ps2)
+
+#making graph for high.low level of poverty
+#Low POV intercept
+(80.09+(-.39*-5.10))
+
+#Low POV slope of CRIME
+(-.95 + .10*-5.10)
+
+#High POV intercept
+(80.09+(-.39*5.10))
+
+#High POV slope of CRIME
+(-.95 + .10*5.10)
+
+plot(CRIME~SIZE, data=ps2, col="gray", xlab="SIZE", cex.lab=1.5, 
+     ylab="CRIME", cex.lab=1.5, cex=.5, xlim=c(0, 100), ylim=c(0, 250))
+par(new=T)
+abline(82.08, -1.46, col="aquamarine2", lwd=3)
+abline(78.10, -0.44, col="purple1", lwd=3)
+legend("bottomright", c("Low Poverty", "High Poverty"), fill=c("aquamarine2", "purple1"), cex=1)
+
+#creating deviation term
+ps2$size_mean <- (ps2$SIZE-38.42)
+ps2$pov_mean <- (ps2$POV-22.54)
+
+#creating an interaction term
+ps2$inter_mean <- (ps2$size_mean*ps2$pov_mean)
+
+#running model for comparing contrast
+model5 <- lm(formula = CRIME ~ pov_mean + size_mean + inter_mean, data=ps2)
+summary(model5)
+anova(model5)
+EtaSq(model5)
+
+#running model for comparing contrast
+model6 <- lm(formula = CRIME ~ pov_mean + size_mean, data=ps2)
+summary(model6)
+anova(model6)
+EtaSq(model6)
+
+#creating deviation term
+ps2$size_dev <- (ps2$SIZE-50)
+
+#creating an interaction term
+ps2$inter_dev <- (ps2$size_dev*ps2$pov_mean)
+
+#running model for comparing contrast
+model7 <- lm(formula = CRIME ~ pov_mean + size_dev + inter_dev, data=ps2)
+summary(model7)
+anova(model7)
+EtaSq(model7)
+
+#running model for comparing contrast
+model8 <- lm(formula = CRIME ~ pov_mean + size_dev, data=ps2)
+summary(model8)
+anova(model8)
+EtaSq(model8)
+
+#running model for comparing contrast
+model9 <- lm(formula = CRIME ~ SIZE, data=ps2)
+summary(model9)
+anova(model9)
+EtaSq(model9)
+
+#running model for comparing contrast
+model10 <- lm(formula = CRIME ~ POV, data=ps2)
+summary(model10)
+anova(model10)
+EtaSq(model10)
+```
