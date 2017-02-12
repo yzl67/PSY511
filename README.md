@@ -1,1 +1,64 @@
 # PSY511
+---
+title: "Assignments"
+---
+
+This page describes details about the weekly (in-class + homework) assignments and the final project that are required in PSY 511.
+
+## Weekly assignments
+
+#### Week 1 (due 2017-01-16 at start of class)
+
+1. Choose one of the verification bias examples from [*Flawed Science*](http://pubman.mpdl.mpg.de/pubman/item/escidoc:1569964:8/component/escidoc:1569966/Stapel_Investigation_Final_report.pdf). In a paragraph or two, propose ways you might avoid this sort of bias in your own research.
+2. Choose one of the [TOP guideline categories](https://osf.io/9f6gx/) where either your own research practices have room to improve or you are doing rather well. In a paragraph or two, explain your reasoning.
+3. In a paragraph or two, describe your current knowlege of R and at least three learning goals you have for building upon it.
+
+- Use a sensible file name: psy511-anaya-2016-01-09-write-up.pdf
+
+#### Week 3 (due 2017-01-30)
+
+- Pick one of the recommended elements from [Table 1 in Munafò, et al. (2017)](http://www.nature.com/articles/s41562-016-0021/tables/1). Evaluate the recommendation. Do you agree that it would mitigate one or more threats to reproducibility. Why or why not? Do you agree with the assessment about the degree to which stakeholders have adopted the recommended practice?
+- Edit/create a text-based workflow for an active project you are working on.
+    + Annote the workflow to indicate where it could be made more reproducible, transparent.
+
+#### Week 4 (due 2017-02-06)
+
+- Create a template for a reproducible research report **OR**
+    + [Rmd template](in-class-activities/rmd-templates/report-template.Rmd)
+    + You might also convert your study protocol into an Rmd document.
+- Create talk slides **OR**
+    + [Rmd template](in-class-activities/rmd-templates/ioslides-template.Rmd)
+- Create a draft project website
+    + [Rmd template](in-class-activities/rmd-templates/website)
+
+#### Week 5 (due 2017-02-13)
+
+- Create GitHub repo for the project you completed last week
+    + Open an issue flagging `@rogilmore` so I know to look at your repo and document.
+- Create a repo for your final course project
+    + Create a Markdown document where you start to outline the possible directions that your final project might take.
+    + Open an issue so I can take a look.
+- Clone a repo; fix/change something; make a [pull request](https://help.github.com/articles/about-pull-requests/).
+    + Option 1: <http://psu-psychology.github.io/psy-511-reproducible-research-spring-2017/>
+        - Suggestion: Add something about yourself to `students.html` by editing `students.Rmd` and then rebuilding the site via `rmarkdown::render_site(encoding = "utf8")`
+    + Option 2: <https://psu-psychology.github.io/data-science-and-reproducibility/>
+        - Suggestion: Add or edit `resources.html` by editing `resources.Rmd` and then rebuilding the site via `rmarkdown::render_site(encoding = "utf8")`
+        - If you want to be added to the repo as an editor so you can do this more easily (w/o a pull request), let me know.
+
+## Week 6: (due 2017-02-20)
+
+- Create your own simulated data set for a real or proposed study.
+    + You may adapt or build upon the examples used in class.
+- Plot the results of your simulation using ggplot2 commands.
+
+## Final project
+
+Each student will produce a final project and demo or report upon it during one of the last two class periods in the semester. The specific project topic will be determined in consultation with the instructor. Here are some possible topics for students to consider:
+
+- Reuse/reanalysis of existing published dataset
+- Research project website and workflow
+- Draft of a data paper suitable for submission to a data journal
+- Tutorial on reproducible research practices
+- Develop mTurk/jsPsych/psiTurk study and analysis workflow
+
+## Week 7: Enjoy your summer and be productive! Cheers!
